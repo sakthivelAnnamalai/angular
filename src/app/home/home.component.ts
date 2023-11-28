@@ -22,7 +22,7 @@ export class HomeComponent {
     this.apiService.Get(ApiList.checkingProject).subscribe({
       next: (res: any) => {
         console.log("responesssssssssssssssssss",res)
-         this.utility.errorToast(res.message) 
+         this.utility.successToast(res.message) 
       },
       error: (err: HttpErrorResponse) => {
         console.log(err);
