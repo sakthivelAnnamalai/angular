@@ -15,3 +15,120 @@
         </ng-template>
     </p-toast>
 </div>
+
+
+
+
+<!-- notes------------------------------------------------>
+
+<!-- side bar  <html>  (add ts file form group Name and controller Name,visble variable ) -->
+<!-- <div id="sidebar">
+    <p-sidebar [(visible)]="formpage" position="right" [style]="{width:'25%'}" (onHide)="cancel()"
+        [dismissible]="false" [closeOnEscape]="false">
+        <ng-template pTemplate="header">
+            <div *ngIf="true" class="header-wrapper">
+                Add User
+            </div>
+            <div *ngIf="false" class="header-wrapper">
+               Update User
+            </div>
+        </ng-template>
+
+        <ng-template pTemplate="content">
+            <div class="content-wrapper">
+                <form action="" [formGroup]="form">
+                    <div class="textinput">
+                        <label class="lable" htmlFor="username">Username</label>
+                        <input pInputText id="username" placeholder="Enter User Name" formControlName='userName'
+                            aria-describedby="username-help" />
+                        <div class="error-indicator" *ngIf="
+                            usercontrole['userName'].invalid &&
+                            (usercontrole['userName'].dirty ||
+                            usercontrole['userName'].touched)">
+                            <span class="error-type" *ngIf="usercontrole['userName'].errors?.['required']">
+                                User name is required
+                            </span>
+        
+                        </div>
+                    </div>
+        
+                    <div class="textinput">
+                        <label class="lable" htmlFor="date">Date Of Birth</label>
+                        <p-calendar id="date" appendTo="body" formControlName="DOB" dateFormat="mm/dd/yy" [readonlyInput]="true"
+                            [showTime]="false" [showSeconds]="false" placeholder="Enter Date Of birth"></p-calendar>
+                        <div class="error-indicator" *ngIf="
+                            usercontrole['DOB'].invalid &&
+                            (usercontrole['DOB'].dirty ||
+                            usercontrole['DOB'].touched)">
+                            <span class="error-type" *ngIf="usercontrole['DOB'].errors?.['required']">
+                                Date of birth is required
+                            </span>
+                        </div>
+                    </div>
+        
+                    <div class="textinput">
+                        <label class="lable" htmlFor="phnumber">Mobile Number</label>
+                        <input pInputText id="phnumber" placeholder="Enter Phone Number" aria-describedby="username-help"
+                            formControlName="phNumber" />
+                        <div class="error-indicator" *ngIf="
+                            usercontrole['phNumber'].invalid &&
+                            (usercontrole['phNumber'].dirty ||
+                            usercontrole['phNumber'].touched)">
+                            <span class="error-type" *ngIf="usercontrole['phNumber'].errors?.['required']">
+                                Mobile number is required
+                            </span>
+                        </div>
+                    </div>
+        
+                    <div class="textinput">
+                        <label class="lable" htmlFor="g">Gender</label>
+                        <p-dropdown id="g" [options]="gender" optionLabel="name" [showClear]="true"
+                            placeholder="Select a Gender" formControlName="gender"></p-dropdown>
+                        <div class="error-indicator" *ngIf="
+                            usercontrole['gender'].invalid &&
+                            (usercontrole['gender'].dirty ||
+                            usercontrole['gender'].touched)">
+                            <span class="error-type" *ngIf="usercontrole['gender'].errors?.['required']">
+                                Mobile number is required
+                            </span>
+                        </div>
+                    </div>
+        
+                    <div class="textinput">
+                        <label class="lable" htmlFor="text">Address</label>
+                        <textarea id="text" rows="5" cols="30" pInputTextarea [autoResize]="false"
+                            formControlName="add"></textarea>
+                        <div class="error-indicatortext" *ngIf="
+                            usercontrole['add'].invalid &&
+                            (usercontrole['add'].dirty ||
+                            usercontrole['add'].touched)">
+                            <span class="error-type" *ngIf="usercontrole['add'].errors?.['required']">
+                                Addressis required
+                            </span>
+                        </div>  
+                    </div>
+    
+                </form>
+            </div>
+        </ng-template>
+
+        <ng-template pTemplate="footer">
+            <div class="btn-wrapper">
+                <p-button class="upload-btn" (click)="cancel()" >cancle</p-button>
+                <p-button *ngIf="true" class="add-btn" label="Submit" (onClick)="submit()" ></p-button>
+                <p-button *ngIf="false" class="add-btn" label="update" (onClick)="update()" >Update</p-button>
+            </div>
+        </ng-template>
+    </p-sidebar>
+</div> -->
+
+<!-- End--------------------------------------------------------- -->
+<!-- ConfirmationDialog (add ts file visble varable and form Hide() )  -->
+
+<!-- <p-confirmDialog #cd icon="pi pi-exclamation-triangle" [visible]="confirmdialodvisible">
+    <ng-template pTemplate="footer">
+        <button type="button" class="ant-normal" pButton  label="Cancel" (click)="cd.reject()"></button>
+        <button type="button" class="ant-normal ant-accept" pButton  label="OK"  (click)="deletefunction(cd)"></button>
+    </ng-template>
+  </p-confirmDialog> -->
+
