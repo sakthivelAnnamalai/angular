@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -22,7 +22,8 @@ import { ToastModule } from 'primeng/toast';
     AppRoutingModule,
     ButtonModule,
     HttpClientModule,
-    ToastModule
+    ToastModule,
+    BrowserAnimationsModule
   ],
   providers: [ConfirmationService,MessageService],
   bootstrap: [AppComponent]
