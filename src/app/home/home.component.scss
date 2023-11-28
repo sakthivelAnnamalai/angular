@@ -1,0 +1,28 @@
+.laout{
+    display:flex;
+    height: 100vh;
+    overflow: auto;
+  
+    .sidemenu{
+        height: 100%;
+        width: 100px;
+        background-color: blue;
+        padding: 15px;
+        .sidemenuitems{
+
+        }
+    }
+
+    .content{
+        width: 100%;
+        .header{
+            height: 5%;
+        }
+        .routingpage{
+            height: 95%;
+            background-color: azure;
+            
+        }
+
+    }
+}
