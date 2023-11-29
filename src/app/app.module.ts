@@ -12,7 +12,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { KirubaComponent } from './kiruba/kiruba.component';
 import { ViswaComponent } from './viswa/viswa.component';
 import { SanthoshComponent } from './santhosh/santhosh.component';
-
+import { SidebarModule } from 'primeng/sidebar';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RatingModule } from 'primeng/rating';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -29,9 +34,14 @@ import { SanthoshComponent } from './santhosh/santhosh.component';
     ButtonModule,
     HttpClientModule,
     ToastModule,
-    BrowserAnimationsModule
+    RatingModule,
+    BrowserAnimationsModule,
+    SidebarModule,
+    ReactiveFormsModule,
+    DropdownModule,
+    InputTextModule, CalendarModule
   ],
-  providers: [ConfirmationService,MessageService],
+  providers: [ConfirmationService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
