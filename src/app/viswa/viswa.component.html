@@ -1,1 +1,169 @@
-<p>viswa works!</p>
+<div id="sidebar">
+
+    <p-sidebar [(visible)]="formpage" position="right" [style]="{width:'25%'}" (onHide)="cancel()"
+        [dismissible]="false" [closeOnEscape]="false">
+
+
+        <ng-template pTemplate="header">
+            <div *ngIf="true" class="header-wrapper">
+                Add User
+            </div>
+            <div *ngIf="false" class="header-wrapper">
+               Update User
+            </div>
+        </ng-template>
+
+        <ng-template pTemplate="content">
+            <div class="content-wrapper">
+                <form action="" [formGroup]="form">
+                    <div class="textinput">
+                        <label class="lable" For="username">Moviename</label>
+                        <input pInputText id="Moviename" placeholder="Enter Moviename" formControlName='mName'
+                            aria-describedby="Moviename" />
+                        <div class="error-indicator" *ngIf="
+                            formcontrol['mName'].invalid &&
+                            (formcontrol['mName'].dirty ||
+                            formcontrol['mName'].touched)">
+                            <span class="error-type" *ngIf="formcontrol['mName'].errors?.['required']">
+                                Moviename is required
+                            </span>
+        
+                        </div>
+                    </div>
+
+                    <div class="textinput">
+                        <label class="lable" For="g">Hero</label>
+                        <p-dropdown id="g" [options]="heroId" optionLabel="name" [showClear]="true"
+                            placeholder="Select Hero" formControlName="heroId"></p-dropdown>
+                        <div class="error-indicator" *ngIf="
+                            formcontrol['heroId'].invalid &&
+                            (formcontrol['heroId'].dirty ||
+                            formcontrol['heroId'].touched)">
+                            <span class="error-type" *ngIf="formcontrol['heroId'].errors?.['required']">
+                                Mobile number is required
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="textinput">
+                        <label class="lable" For="g">Heroine</label>
+                        <p-dropdown id="g" [options]="heroineId" optionLabel="name" [showClear]="true"
+                            placeholder="Select Heroine" formControlName="heroineId"></p-dropdown>
+                        <div class="error-indicator" *ngIf="
+                            formcontrol['heroineId'].invalid &&
+                            (formcontrol['heroineId'].dirty ||
+                            formcontrol['heroineId'].touched)">
+                            <span class="error-type" *ngIf="formcontrol['heroineId'].errors?.['required']">
+                                Mobile number is required
+                            </span>
+                        </div>
+                    </div>
+        
+                    <div class="textinput">
+                        <label class="lable" For="date">Release Date</label>
+                        <p-calendar id="date" appendTo="body" formControlName="rDate" dateFormat="mm/dd/yy" [readonlyInput]="true"
+                            [showTime]="false" [showSeconds]="false" placeholder="Release Date"></p-calendar>
+                        <div class="error-indicator" *ngIf="
+                            formcontrol['rDate'].invalid &&
+                            (formcontrol['rDate'].dirty ||
+                            formcontrol['rDate'].touched)">
+                            <span class="error-type" *ngIf="formcontrol['rDate'].errors?.['required']">
+                                Release date required 
+                            </span>
+                        </div>
+                    </div>
+        
+                    <div class="textinput">
+                        <label class="lable" For="phnumber">Collection</label>
+                        <input pInputText id="phnumber" placeholder="Enter Phone Number" aria-describedby="username-help"
+                            formControlName="collection" />
+                        <div class="error-indicator" *ngIf="
+                            formcontrol['collection'].invalid &&
+                            (formcontrol['collection'].dirty ||
+                            formcontrol['collection'].touched)">
+                            <span class="error-type" *ngIf="formcontrol['collection'].errors?.['required']">
+                                Collection
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="textinput">
+                        <label class="lable" For="rating">Rating</label>
+                        <p-rating formControlName="rating"></p-rating>
+                        <div class="error-indicator" *ngIf="
+                            formcontrol['rating'].invalid &&
+                            (formcontrol['rating'].dirty ||
+                            formcontrol['rating'].touched)">
+                            <span class="error-type" *ngIf="formcontrol['rating'].errors?.['required']">
+                                
+                            </span>
+                        </div>
+                    </div>
+
+
+    
+                </form>
+            </div>
+        </ng-template>
+
+        <ng-template pTemplate="footer">
+            <div class="btn-wrapper">
+                <p-button class="upload-btn" (click)="cancel()" >cancle</p-button>
+                <p-button *ngIf="true" class="add-btn" label="Submit" (onClick)="submit()" ></p-button>
+                <p-button *ngIf="false" class="add-btn" label="update" (onClick)="update()" >Update</p-button>
+            </div>
+
+        </ng-template>
+    </p-sidebar>
+</div>
+
+
+<!-- <p-button type="p-button" (Click)="formpage=true" label="Create"></p-button> -->
+<!-- <p-button label="Create"> </p-button> -->
+<p-button type="button" class="mr-2 pr-btn" (click)="create()">Create</p-button>
+
+
+    <p-confirmDialog #cd icon="pi pi-exclamation-triangle" [visible]="confirmdialodvisible">
+        <ng-template pTemplate="footer">
+
+            <button type="button" class="ant-normal" pButton  label="Cancel" (click)="cd.reject()"></button>
+            <button type="button" class="ant-normal ant-accept" pButton  label="OK"  (click)="deletefunction(cd)"></button>
+        </ng-template>
+      </p-confirmDialog>
+
+
+
+
+<p-table [value]="movieslist" [tableStyle]="{'min-width': '50rem'}">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th>Name </th>
+            <th>MovieName</th>
+            <th>HeroName</th>
+            <th>HeroineName</th>
+            <th>ReleaseDate</th>
+            <th>Collection</th>
+            <th>Rating</th>
+            <th>Action</th>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-movieslist let-columns="columns">
+        <tr>
+            <td>{{movieslist.mName}}</td>
+            <td>{{movieslist.heroId }}</td>
+            <td>{{movieslist.heroineId}}</td>
+            <td>{{movieslist.rDate}}</td>
+            <td>{{movieslist.collection}}</td>
+            <td>{{movieslist.rating}}</td>
+            <td>
+      <button type="button" class="ant-normal" pButton  label="Edit" (click)="edit(movieslist.id)"></button>
+
+            </td>
+
+            
+            <!-- <td><p-tag [value]="movieslist.inventoryStatus" [severity]="getSeverity(movieslist.inventoryStatus)"></p-tag></td> -->
+            <!-- <td><p-rating [ngModel]="movieslist.rating" [readonly]="true" [cancel]="false"></p-rating></td> -->
+        </tr>
+    </ng-template>
+</p-table>

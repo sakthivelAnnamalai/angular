@@ -12,9 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { KirubaComponent } from './kiruba/kiruba.component';
 import { ViswaComponent } from './viswa/viswa.component';
 import { SanthoshComponent } from './santhosh/santhosh.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { SidebarModule } from 'primeng/sidebar';
-import { CalendarModule } from 'primeng/calendar';
+import { ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { RatingModule } from 'primeng/rating';
@@ -37,10 +36,10 @@ import { FormsModule } from '@angular/forms';
     ButtonModule,
     HttpClientModule,
     ToastModule,
+    RatingModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
     SidebarModule,
-    CalendarModule,
+    ReactiveFormsModule,
     DropdownModule,
     InputTextModule,
     RatingModule,
@@ -48,7 +47,7 @@ import { FormsModule } from '@angular/forms';
     TableModule,
     FormsModule
   ],
-  providers: [ConfirmationService,MessageService],
+  providers: [ConfirmationService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
