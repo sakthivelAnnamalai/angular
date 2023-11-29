@@ -9,8 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ButtonModule,
     HttpClientModule,
     ToastModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    InputTextModule
   ],
   providers: [ConfirmationService,MessageService],
   bootstrap: [AppComponent]

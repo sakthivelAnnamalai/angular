@@ -1,3 +1,4 @@
 export enum ApiList{
-     checkingProject='/user/checkApi'
+     checkingProject='/user/checkApi',
+     login='/login/login'
 }

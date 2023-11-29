@@ -1,1 +1,53 @@
-<p>login works!</p>
+
+<div id="login">
+    <div class="parent-container">
+        <div class="left-side">
+        </div>
+        <div class="right-side">
+            <div class="content-width">
+                <img src="../../assets/login.svg" class="login-img" alt="" style="width:100%;">
+                <form class="input-field" [formGroup]="loginForm">
+                    <div class="form-group" [ngClass]="submitted ? 'submit' : ''">
+                        <label for="email">User Name</label>
+                        <input placeholder="User Name" [class]="loginControl ['userName'].invalid || loginControl['userName'].touched " type="text" class="email" id="email" pInputText formControlName="userName" 
+                            [tabIndex]="1" />
+                        <!-- <div class="error-indicator" *ngIf="submitted &&
+                                loginControl['userName'].invalid &&
+                                (loginControl['userName'].dirty ||
+                                loginControl['userName'].touched)">
+                            <span class="error-type" *ngIf="loginControl['userName'].errors?.['required']">{{"global.emailisrequired" | translate}}
+                            </span>
+                            <span class="error-type"
+                            *ngIf="loginControl['userName'].errors?.['pattern']"
+                            >{{"global.invalidemailaddressformat" | translate}}</span>   
+                        </div> -->
+                        <div class="validation" *ngIf="loginControl['userName']?.invalid && (loginControl['userName'].dirty || loginControl['userName'].touched)">
+                            <span class="validation-line" *ngIf="loginControl['userName']?.hasError('required')">User Name is required</span>
+                            <span class="validation-line" *ngIf="loginControl['userName']?.hasError('minlength') && !loginControl['userName']?.hasError('pattern')">User Name  must be at least 3 characters long</span>
+                            <span class="validation-line" *ngIf="loginControl['userName']?.hasError('maxlength') && !loginControl['userName']?.hasError('pattern')">User Name must be at most 50 characters long</span>
+                            <span class="validation-line" *ngIf="loginControl['userName']?.hasError('pattern')">User Name is Invalid</span>
+                          </div>
+                    </div>
+                        <div class="form-group" [ngClass]="submitted ? 'submit' : ''">
+                                <label for="passwordId">Password</label>
+                                <input  placeholder="Password" id="passwordId" type="{{ hidePassword ? 'text' : 'password' }}" class="createPassword" pInputText formControlName="password" 
+                                [tabIndex]="2" />
+                                <span class="eyeIcon" (click)="this.hidePassword = !this.hidePassword">
+                                    <i *ngIf="!hidePassword" class="pi pi-eye">U</i>
+                                    <i *ngIf="hidePassword" class="pi pi-eye-slash">I</i>
+                                    </span>                 
+                            <div class="validation" *ngIf="loginControl['password']?.invalid && (loginControl['password'].dirty || loginControl['password'].touched)">
+                                <span class="validation-line" *ngIf="loginControl['password'].errors?.['required']">Password is required</span>
+                                <span class="validation-line" *ngIf="loginControl['password'].errors?.['maxlength'] && !loginControl['password']?.hasError('pattern')">Password must be at most 20 characters long</span>
+                                <span class="validation-line" *ngIf="loginControl['password']?.hasError('minlength') && !loginControl['password']?.hasError('pattern')">Password must  must be at least 8 characters long</span>
+                                <span class="validation-line" *ngIf="loginControl['password']?.hasError('pattern')">Password is Invalid</span>
+                            </div>
+                        </div>
+                </form>
+                <div class="sign-btn">
+                    <p-button class="signbtn"  (click)="login() " [tabIndex]="3">Login</p-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
