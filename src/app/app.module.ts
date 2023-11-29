@@ -18,7 +18,8 @@ import { RatingModule } from 'primeng/rating';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
-
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { TableModule } from 'primeng/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,7 @@ import { CalendarModule } from 'primeng/calendar';
     SidebarModule,
     ReactiveFormsModule,
     DropdownModule,
-    InputTextModule, CalendarModule
+    InputTextModule, CalendarModule, ConfirmDialogModule, TableModule
   ],
   providers: [ConfirmationService, MessageService],
   bootstrap: [AppComponent]
