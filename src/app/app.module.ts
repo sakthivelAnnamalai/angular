@@ -9,13 +9,15 @@ import { LoginComponent } from './login/login.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SanthoshComponent } from './santhosh/santhosh.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    SanthoshComponent
   ],
   imports: [
     BrowserModule,
