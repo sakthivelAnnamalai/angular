@@ -23,18 +23,20 @@ export class SanthoshComponent implements OnInit {
   heroineId: heroine[] | undefined;
   formpage: boolean = false;
   value!: number;
+  starsValue: number = 5;
   ngOnInit(): void {
     this.get()
   }
   get() {
     this.form = this.fb.group({
-      mName: [null, Validators.required],
-      heroId: [null, Validators.required],
-      heroineId: [null, Validators.required],
+      mName: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+      heroId: [null, [Validators.required]],
+      heroineId: [null, [Validators.required]],
       rDate: [null, Validators.required],
-      collection: [null, Validators.required],
+      collection: [null, [Validators.required, Validators.minLength(2), Validators.pattern('^[0-9]+$')]],
       rating: [null, Validators.required]
     })
+
   }
   cancel() {
 

@@ -32,11 +32,11 @@
                         </div>
                     </div>
         
-                    <!-- [showClear]="true" -->
                     <div class="textinput">
                         <label class="lable" For="g">Heroname</label>
                         <p-dropdown id="g" [options]="heroId" optionLabel="name"
-                            placeholder="Select a Gender" formControlName="heroId"></p-dropdown>
+                    [showClear]="true"
+                    placeholder="Select a hero" formControlName="heroId" ></p-dropdown>
                         <div class="error-indicator" *ngIf="
                             control['heroId'].invalid &&
                             (control['heroId'].dirty ||
@@ -49,7 +49,7 @@
                     <div class="textinput">
                         <label class="lable" For="g">Heroinename</label>
                         <p-dropdown id="g" [options]="heroineId" optionLabel="name" [showClear]="true"
-                            placeholder="Select a Gender" formControlName="heroineId"></p-dropdown>
+                            placeholder="Select heroine" formControlName="heroineId"></p-dropdown>
                         <div class="error-indicator" *ngIf="
                             control['heroineId'].invalid &&
                             (control['heroineId'].dirty ||
@@ -60,11 +60,11 @@
                         </div>
                     </div>
 
-                    <!-- [readonlyInput]="true"
-                    [showTime]="false" [showSeconds]="false" -->
+                  
                     <div class="textinput">
                         <label class="lable" For="date">realse date</label>
-                        <p-calendar id="date" appendTo="body" formControlName="rDate" dateFormat="mm/dd/yy"  placeholder="Enter Date Of birth"></p-calendar>
+                        <p-calendar id="date" appendTo="body" formControlName="rDate" dateFormat="mm/dd/yy"  placeholder="Enter Realse date"  [readonlyInput]="true"
+                        [showTime]="false" [showSeconds]="false"></p-calendar>
                         <div class="error-indicator" *ngIf="
                             control['rDate'].invalid &&
                             (control['rDate'].dirty ||
@@ -91,7 +91,7 @@
 
                     <div class="textinput">
                         <label class="lable" For="rating">Rating</label>
-                        <p-rating formControlName="rating" stars="5">
+                        <p-rating formControlName="rating"  [stars]="starsValue">
                             <ng-template pTemplate="cancel">
                                 <img src="https://primefaces.org/cdn/primeng/images/demo/rating/cancel.png" width="25px" height="25px" />
                             </ng-template>
@@ -102,14 +102,14 @@
                                 <img src="https://primefaces.org/cdn/primeng/images/demo/rating/custom-icon.png" width="25px" height="25px" />
                             </ng-template>
                         </p-rating>
-                        <!-- <div class="error-indicator" *ngIf="
-                            control['phNumber'].invalid &&
-                            (control['phNumber'].dirty ||
-                            control['phNumber'].touched)">
-                            <span class="error-type" *ngIf="control['phNumber'].errors?.['required']">
-                                Mobile number is required
+                        <div class="error-indicator" *ngIf="
+                            control['collection'].invalid &&
+                            (control['collection'].dirty ||
+                            control['collection'].touched)">
+                            <span class="error-type" *ngIf="control['collection'].errors?.['required']">
+                                rating is required
                             </span>
-                        </div> -->
+                        </div>
                     </div>
         
                 </form>
