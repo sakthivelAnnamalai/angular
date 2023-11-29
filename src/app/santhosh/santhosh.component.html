@@ -118,12 +118,45 @@
 
         <ng-template pTemplate="footer">
             <div class="btn-wrapper">
-                <p-button class="upload-btn" (click)="cancel()" >cancle</p-button>
-                <p-button *ngIf="true" class="add-btn" label="Submit" (onClick)="submit()" ></p-button>
-                <p-button *ngIf="false" class="add-btn" label="update" (onClick)="update()" >Update</p-button>
+                <p-button class="upload-btn" (click)="cancel()" >cancel</p-button>
+                <p-button *ngIf="!show" class="add-btn" label="Submit" (onClick)="submit()" ></p-button>
+                <p-button *ngIf="show" class="add-btn" label="update" (onClick)="update()" ></p-button>
             </div>
         </ng-template>
     </p-sidebar>
 </div> 
+<p-confirmDialog #cd icon="pi pi-exclamation-triangle" [visible]="confirmdialodvisible">
+    <ng-template pTemplate="footer">
+        <button type="button" class="ant-normal" pButton  label="Cancel" (click)="cd.reject()"></button>
+        <button type="button" class="ant-normal ant-accept" pButton  label="OK"  (click)="deletefunction(cd)"></button>
+    </ng-template>
+  </p-confirmDialog>
 
 
+  <p-table [value]="movieslist" selectionMode="single"  dataKey="code" [tableStyle]="{'min-width': '50rem'}">
+    <ng-template pTemplate="header">
+        <tr>
+       <th>Id</th>
+       <th>Moviename</th>
+       <th>Heroname</th>
+       <th>Heroinename</th>
+       <th>RealseDate</th>
+       <th>box office</th>
+       <th>Rating</th>
+       <th>Action</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-movieslist>
+        <tr>
+       
+            <td>{{movieslist.id}}</td>
+            <td>{{movieslist.mName}}</td>
+            <td>{{movieslist.heroId}}</td>
+            <td>{{movieslist.heroineId}}</td>
+            <td>{{movieslist.rDate}}</td>
+            <td>{{movieslist.collection}}</td>
+            <td>{{movieslist.rating}}</td>
+            <td><p-button (click)=edit() label="Edit"></p-button></td>
+           
+    </ng-template>
+</p-table>
