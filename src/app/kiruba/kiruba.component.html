@@ -66,8 +66,8 @@
 
                     <div class="textinput">
                         <label class="lable" htmlFor="date">Releas Date</label>
-                        <p-calendar id="date" appendTo="body" formControlName="rDate" dateFormat="mm/dd/yy" [readonlyInput]="true"
-                            [showTime]="false" [showSeconds]="false" placeholder="Enter Releas Date"></p-calendar>
+                        <p-calendar id="date" appendTo="body" formControlName="rDate" dateFormat="mm/dd/yy"
+                            placeholder="Enter Releas Date"></p-calendar>
                         <div class="error-indicator" *ngIf="
                             formControl['rDate'].invalid &&
                             (formControl['rDate'].dirty ||
