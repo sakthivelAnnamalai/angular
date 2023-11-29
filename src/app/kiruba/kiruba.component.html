@@ -1,1 +1,135 @@
-<p>kiruba works!</p>
+<div id="sidebar">
+    <p-sidebar [(visible)]="formpage" position="right" [style]="{width:'25%'}" (onHide)="cancel()"
+        [dismissible]="false" [closeOnEscape]="false">
+        <ng-template pTemplate="header">
+            <div *ngIf="true" class="header-wrapper">
+                Add User
+            </div>
+            <div *ngIf="false" class="header-wrapper">
+               Update User
+            </div>
+        </ng-template>
+
+        <ng-template pTemplate="content">
+            <div class="content-wrapper">
+                <form action="" [formGroup]="form">
+
+                    <div class="textinput">
+                        <label class="lable" For="mname">Movie Name</label>
+                        <input pInputText id="mname" placeholder="Enter Movie Name" formControlName='mName'
+                            aria-describedby="collection-help" />
+                        <div class="error-indicator" *ngIf="
+                            formControl['mName'].invalid &&
+                            (formControl['mName'].dirty ||
+                            formControl['mName'].touched)">
+                            <span class="error-type" *ngIf="formControl['mName'].errors?.['required']">
+                                Movie name is required
+                            </span>
+                            <span class="error-type" *ngIf="formControl['mName'].errors?.['minlenght']">
+                                Movie name is min 2 character
+                            </span>
+                        </div>
+                    </div>
+        
+        
+                    <div class="textinput">
+                        <label class="lable" For="g">Hero Name</label>
+                        <p-dropdown id="g"  optionLabel="name" [showClear]="true"
+                            placeholder="Select a Gender" formControlName="heroId"></p-dropdown>
+                        <div class="error-indicator" *ngIf="
+                            formControl['heroId'].invalid &&
+                            (formControl['heroId'].dirty ||
+                            formControl['heroId'].touched)">
+                            <span class="error-type" *ngIf="formControl['heroId'].errors?.['required']">
+                                hero Name is required
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="textinput">
+                        <label class="lable" For="g">Hero Name</label>
+                        <p-dropdown id="g"  optionLabel="name" [showClear]="true"
+                            placeholder="Select a Gender" formControlName="heroineId"></p-dropdown>
+                        <div class="error-indicator" *ngIf="
+                            formControl['heroineId'].invalid &&
+                            (formControl['heroineId'].dirty ||
+                            formControl['heroineId'].touched)">
+                            <span class="error-type" *ngIf="formControl['heroineId'].errors?.['required']">
+                                heroine Name is required
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="textinput">
+                        <label class="lable" htmlFor="date">Releas Date</label>
+                        <p-calendar id="date" appendTo="body" formControlName="rDate" dateFormat="mm/dd/yy" [readonlyInput]="true"
+                            [showTime]="false" [showSeconds]="false" placeholder="Enter Releas Date"></p-calendar>
+                        <div class="error-indicator" *ngIf="
+                            formControl['rDate'].invalid &&
+                            (formControl['rDate'].dirty ||
+                            formControl['rDate'].touched)">
+                            <span class="error-type" *ngIf="formControl['rDate'].errors?.['required']">
+                                Releas Date is required
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="textinput">
+                        <label class="lable" For="collection">Movie Name</label>
+                        <input pInputText id="collection" placeholder="Enter Movie Collection" formControlName='collection'
+                            aria-describedby="collection-help" />
+                        <div class="error-indicator" *ngIf="
+                            formControl['collection'].invalid &&
+                            (formControl['collection'].dirty ||
+                            formControl['collection'].touched)">
+                            <span class="error-type" *ngIf="formControl['collection'].errors?.['required']">
+                                Movie name is required
+                            </span>
+                            <span class="error-type" *ngIf="formControl['collection'].errors?.['minlenght']">
+                                 Collestion is min 2
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="textinput">
+                    <label>Rating</label>
+                    <p-rating formControlName='rating' [stars]="starsValue">
+                        <ng-template pTemplate="cancel">
+                          <img src="https://primefaces.org/cdn/primeng/images/demo/rating/cancel.png" width="25px" height="25px" />
+                        </ng-template>
+                        <ng-template pTemplate="onicon">
+                          <img src="https://primefaces.org/cdn/primeng/images/demo/rating/custom-icon-active.png" width="25px" height="25px" />
+                        </ng-template>
+                        <ng-template pTemplate="officon">
+                          <img src="https://primefaces.org/cdn/primeng/images/demo/rating/custom-icon.png" width="25px" height="25px" />
+                        </ng-template>
+                      </p-rating>
+                      <div class="error-indicator" *ngIf="
+                            formControl['collection'].invalid &&
+                            (formControl['collection'].dirty ||
+                            formControl['collection'].touched)">
+                            <span class="error-type" *ngIf="formControl['collection'].errors?.['required']">
+                                rating is required
+                            </span>
+                        </div>
+                    </div>
+        
+                    
+    
+                </form>
+            </div>
+        </ng-template>
+
+        <ng-template pTemplate="footer">
+            <div class="btn-wrapper">
+                <p-button class="upload-btn" (click)="cancel()" >cancle</p-button>
+                <p-button *ngIf="true" class="add-btn" label="Create" (onClick)="create()" ></p-button>
+                <p-button *ngIf="false" class="add-btn" label="update" (onClick)="update()" >Update</p-button>
+            </div>
+        </ng-template>
+    </p-sidebar>
+</div>
+
+<p-button label="Submit" (click)="formpage=true" icon="pi pi-check"></p-button>
