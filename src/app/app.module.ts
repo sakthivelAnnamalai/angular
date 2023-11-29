@@ -9,7 +9,11 @@ import { LoginComponent } from './login/login.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+<<<<<<< HEAD
 import { ViswaComponent } from './viswa/viswa.component';
+=======
+import { SanthoshComponent } from './santhosh/santhosh.component';
+>>>>>>> 94672d3e6a1eabbe6204ec34883efd25e50d4b43
 
 
 @NgModule({
@@ -17,7 +21,11 @@ import { ViswaComponent } from './viswa/viswa.component';
     AppComponent,
     HomeComponent,
     LoginComponent,
+<<<<<<< HEAD
     ViswaComponent
+=======
+    SanthoshComponent
+>>>>>>> 94672d3e6a1eabbe6204ec34883efd25e50d4b43
   ],
   imports: [
     BrowserModule,
