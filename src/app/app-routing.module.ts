@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { SanthoshComponent } from './santhosh/santhosh.component';
 import { ViswaComponent } from './viswa/viswa.component';
+import { SanthoshComponent } from './santhosh/santhosh.component';
 
 const routes: Routes = [
   {
@@ -22,7 +22,17 @@ const routes: Routes = [
     //   path:'crud',
     //   component:StartComponent,
     // }  
+    {
+      path:'viswa',
+      component:ViswaComponent
+    },
+      {
+        path: 'santhosh',
+        component: SanthoshComponent,
+
+      }
     ]
+    
   },
 
 ];
