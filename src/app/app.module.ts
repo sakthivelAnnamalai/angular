@@ -18,6 +18,9 @@ import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { RatingModule } from 'primeng/rating';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { TableModule } from 'primeng/table';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { RatingModule } from 'primeng/rating';
     CalendarModule,
     DropdownModule,
     InputTextModule,
-    RatingModule
+    RatingModule,
+    ConfirmDialogModule,
+    TableModule,
+    FormsModule
   ],
   providers: [ConfirmationService,MessageService],
   bootstrap: [AppComponent]

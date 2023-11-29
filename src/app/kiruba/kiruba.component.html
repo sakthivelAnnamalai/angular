@@ -2,10 +2,10 @@
     <p-sidebar [(visible)]="formpage" position="right" [style]="{width:'25%'}" (onHide)="cancel()"
         [dismissible]="false" [closeOnEscape]="false">
         <ng-template pTemplate="header">
-            <div *ngIf="true" class="header-wrapper">
+            <div *ngIf="!submitButton" class="header-wrapper">
                 Add User
             </div>
-            <div *ngIf="false" class="header-wrapper">
+            <div *ngIf="submitButton" class="header-wrapper">
                Update User
             </div>
         </ng-template>
@@ -28,6 +28,9 @@
                             <span class="error-type" *ngIf="formControl['mName'].errors?.['minlenght']">
                                 Movie name is min 2 character
                             </span>
+                            <span class="error-type" *ngIf="formControl['mName'].errors?.['maxlength']">
+                                Movie name is max 50 character
+                            </span>
                         </div>
                     </div>
         
@@ -47,7 +50,7 @@
                     </div>
 
                     <div class="textinput">
-                        <label class="lable" For="g">Hero Name</label>
+                        <label class="lable" For="g">Heroine Name</label>
                         <p-dropdown id="g"  optionLabel="name" [showClear]="true"
                             placeholder="Select a Gender" formControlName="heroineId"></p-dropdown>
                         <div class="error-indicator" *ngIf="
@@ -77,7 +80,7 @@
 
 
                     <div class="textinput">
-                        <label class="lable" For="collection">Movie Name</label>
+                        <label class="lable" For="collection">Collection</label>
                         <input pInputText id="collection" placeholder="Enter Movie Collection" formControlName='collection'
                             aria-describedby="collection-help" />
                         <div class="error-indicator" *ngIf="
@@ -85,11 +88,14 @@
                             (formControl['collection'].dirty ||
                             formControl['collection'].touched)">
                             <span class="error-type" *ngIf="formControl['collection'].errors?.['required']">
-                                Movie name is required
+                                Collection is required
                             </span>
                             <span class="error-type" *ngIf="formControl['collection'].errors?.['minlenght']">
-                                 Collestion is min 2
+                                 Collestion is min 2 character
                             </span>
+                            <span class="error-type" *ngIf="formControl['collection'].errors?.['pattern']">
+                                only number shoud be the collection
+                           </span>
                         </div>
                     </div>
 
@@ -107,17 +113,14 @@
                         </ng-template>
                       </p-rating>
                       <div class="error-indicator" *ngIf="
-                            formControl['collection'].invalid &&
-                            (formControl['collection'].dirty ||
-                            formControl['collection'].touched)">
-                            <span class="error-type" *ngIf="formControl['collection'].errors?.['required']">
+                            formControl['rating'].invalid &&
+                            (formControl['rating'].dirty ||
+                            formControl['rating'].touched)">
+                            <span class="error-type" *ngIf="formControl['rating'].errors?.['required']">
                                 rating is required
                             </span>
                         </div>
                     </div>
-        
-                    
-    
                 </form>
             </div>
         </ng-template>
@@ -125,11 +128,48 @@
         <ng-template pTemplate="footer">
             <div class="btn-wrapper">
                 <p-button class="upload-btn" (click)="cancel()" >cancle</p-button>
-                <p-button *ngIf="true" class="add-btn" label="Create" (onClick)="create()" ></p-button>
-                <p-button *ngIf="false" class="add-btn" label="update" (onClick)="update()" >Update</p-button>
+                <p-button *ngIf="!submitButton" class="add-btn" label="Create" (onClick)="create()" ></p-button>
+                <p-button *ngIf="submitButton" class="add-btn" label="Update" (onClick)="update()" ></p-button>
             </div>
         </ng-template>
     </p-sidebar>
 </div>
 
+
+<p-confirmDialog #cd icon="pi pi-exclamation-triangle" [visible]="confirmdialodvisible">
+    <ng-template pTemplate="footer">
+        <button type="button" class="ant-normal" pButton  label="Cancel" (click)="cd.reject()"></button>
+        <button type="button" class="ant-normal ant-accept" pButton  label="OK"  (click)="deletefunction(cd)"></button>
+    </ng-template>
+  </p-confirmDialog>
+
+
+
 <p-button label="Submit" (click)="formpage=true" icon="pi pi-check"></p-button>
+
+
+<p-table [value]="movieList" selectionMode="single" scrollHeight="600px" [tableStyle]="{'min-width': '50rem'}">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th>MovieName </th>
+            <th>Hero Name</th>
+            <th>Heroine Name</th>
+            <th>Relesed Date</th>
+            <th>Collletion</th>
+            <th>Rating</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-i let-columns="columns">
+        <tr>
+            <td>{{i.mName}}</td>
+            <td>{{i.heroId | currency:'USD'}}</td>
+            <td>{{i.heroineId}}</td>
+            <td>{{i.rDate}}</td>
+            <td><p-rating [ngModel]="i.rating" [readonly]="true" [cancel]="false"></p-rating></td>
+            <td><i class="pi pi-user-edit" (click)="getbyid(i.id)" style="color: 'var(--primary-color)'"></i></td>
+            <td><i class="pi pi-trash" (click)="deleteByid(i.id)"  style="color: 'var(--primary-color)'"></i></td>
+        </tr>
+    </ng-template>
+</p-table>

@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import "primeicons/primeicons.css";
 
 .p-dialog {
     min-width: 520px !important;
@@ -126,8 +126,13 @@
 .textinput{
     .p-dropdown{
         width: 100% !important;
+        box-shadow: none;
     }
-        .p-calendar {
+    .p-calendar {
         width: 100% !important;
     }
+    input{
+        box-shadow: none;
+    }
+
 }
