@@ -10,6 +10,8 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { KirubaComponent } from './kiruba/kiruba.component';
+import { ViswaComponent } from './viswa/viswa.component';
+import { SanthoshComponent } from './santhosh/santhosh.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { KirubaComponent } from './kiruba/kiruba.component';
     AppComponent,
     HomeComponent,
     LoginComponent,
-    KirubaComponent
+    KirubaComponent,
+    ViswaComponent,
+    SanthoshComponent
   ],
   imports: [
     BrowserModule,
