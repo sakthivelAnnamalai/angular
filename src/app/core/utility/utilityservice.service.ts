@@ -28,4 +28,17 @@ export class UtilityserviceService {
       life: 2000,
     });
   }
+ 
+  // decodeToken() : any | null {
+  //   let token = localStorage.getItem('authToken');
+  //   token = token ?? '';
+  //   let decodedToken:IUserDetails | null = null
+  //   try {
+  //     decodedToken = jwtDecode<any>(token);
+  //   } catch (error) {
+  //     console.log('Decode Token Error: ', error);
+  //     decodedToken = null
+  //   }
+  //   return decodedToken;
+  // }
 }

@@ -44,15 +44,14 @@ export class LoginComponent {
       next: (res: any) => {
         console.log(res);
         if (res.success) {
-          localStorage.setItem("authToken", res.token.accessToken);
-          localStorage.setItem("username", res.username);
-        localStorage.setItem('sessionId',res.sessionId);
-        localStorage.setItem(
-          'userPermission',
-          JSON.stringify(res.token.userPermissions)
-        );   
+          console.log("sakthivelllllllllllllllllllllllllll",res)
+          localStorage.setItem("authToken", res.token.token.token);
+          localStorage.setItem("username", res.token.token.email);
+          localStorage.setItem("roleId", res.token.token.roleId);
+
           this.utilservice.successToast(res.message)
-          this.router.navigate(['user/list'])
+          this.router.navigate(['layout'])
+          
         } else {
           this.utilservice.errorToast(res.message)
         }
