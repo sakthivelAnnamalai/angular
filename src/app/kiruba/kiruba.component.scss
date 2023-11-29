@@ -10,3 +10,48 @@
 
     }
 }
+
+.content-wrapper {
+        .textinput {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding-bottom: 30px;
+            position: relative;
+ 
+            .error-indicator {
+                position: absolute;
+                top: 75px;
+ 
+                .error-type {
+                    color: red;
+                    font-size: small;
+                }
+            }
+ 
+            .error-indicatortext {
+                position: absolute;
+                top: 155px;cd
+ 
+                .error-type {
+                    color: red;
+                    font-size: small;
+                }
+            }
+ 
+            .lable {
+                // color: #000;
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 27px;
+            }
+        }
+    }
+
+
+// .textinput{
+//     display: flex;
+//     flex-direction: column;
+//     gap: 20px;
+// }
